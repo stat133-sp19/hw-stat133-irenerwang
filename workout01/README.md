@@ -1,0 +1,1 @@
+This homework is about learning how to use a more complex file structure, visualising shot data of NBA players, and learning how to write a report document.
