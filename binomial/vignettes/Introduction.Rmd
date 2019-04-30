@@ -1,0 +1,66 @@
+---
+title: "Getting Started with Binomial"
+author: "Irene Wang"
+date: "4/29/2019"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Introduction to binomial}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+```{r, echo = FALSE, message = FALSE}
+knitr::opts_chunk$set(collapse = T, comment = "#>")
+library(binomial)
+```
+## Binomial
+
+The package `"binomial"` is a minimal implementation for simulating binomial distributions and random variables, and to visualize the relative probabilities of successes in such binomial variable with those 
+
+
+## Calculations
+
+The binomial package contains methods `"bin_mean"`, `"bin_variance"`, `"bin_mode"`, `"bin_skewness"`, and `"bin_kurtosis`.  All these methods take in a double for the trials and another double for the probability of success as inputs. They use those inputs to calculate those statistics and returns another double. 
+
+We can also use the `"bin_choose"` and `"bin_probability"` methods to calculate the number of combinations possible with your inputted total trials and number of successes, and the probability of getting a certain number of successes. `"bin_choose"` takes in two doubles, the first is the total number of trials and the second is the number of successes. `"bin_probability"` takes in three doubles, the first is the number of successes, the second is the number of trials, and the third is the probability of success.
+```{r}
+bin_mean(10,0.3)
+bin_variance(10,0.3)
+bin_mode(10,0.3)
+bin_skewness(10,0.3)
+bin_kurtosis(10,0.3)
+
+bin_choose(10, 3)
+bin_probability(3, 10, 0.3)
+```
+
+
+## Creating Distributions, Cumulative Densities, and Random Variables
+
+We can create binomial distributions by using the `"bin_distribution"` method. It takes in the number of trials and the probability of success, and returns a `"bindis"` object. You can see what the `"plot.bindis"` function, which gives a barplot of the probabilities of getting that many successes.
+```{r}
+this_bin <- bin_distribution(10, 0.3)
+this_bin
+plot.bindis(this_bin)
+```
+
+We can create cumulative binomial distributions by using the `"bin_cumulative"` method. It takes in the number of trials and the probability of success, and returns a `"bincum"` object. You can see what the `"plot.bincum"` function, which gives a line plot of the probabilities of getting that many successes.
+```{r}
+this_cum <- bin_cumulative(10, 0.3)
+this_cum
+plot.bincum(this_cum)
+```
+
+The function `"bin_variable"` creates a binomial random variable. It takes in two paramters, the number of trials and the probability of success. It returns a `"binvar"` object. We can look at the parameters of the `"binvar"` object by passing it into the `"print.binvar"` method. We can get its summary with all of the parameters and measurements by passing the `"binvar"` object into the `"summary.binvar"` method, and we can view them with the `"print.summary.binvar"` method.
+
+```{r}
+current_bin <- bin_variable(10, 0.5)
+current_bin
+print.binvar(current_bin)
+```
+
+```{r}
+print.summary.binvar(current_bin)
+```
+
+
+
