@@ -120,7 +120,7 @@ bin_variable <- function(trials, prob) {
 print.binvar <- function(variable){
   cat('Binomial Variable"\n\n')
   cat('Parameters"\n\n')
-  cat(sprintf('number of sides: %s', variable[1]), "\n")
+  cat(sprintf('number of trials: %s', variable[1]), "\n")
   cat(sprintf('prob of success: %s', variable[2]), "\n")
 }
 
@@ -145,7 +145,7 @@ print.summary.binvar <- function(variable){
   summary_var <- summary(variable)
   cat('Summary Binomial"\n\n')
   cat('Parameters"\n\n')
-  cat(sprintf('number of sides: %s', summary_var[1]), "\n")
+  cat(sprintf('number of trials: %s', summary_var[1]), "\n")
   cat(sprintf('prob of success: %s', summary_var[2]), "\n\n")
   cat('Measures"\n\n')
   cat(sprintf('Mean: %s', summary_var[3]), "\n")
