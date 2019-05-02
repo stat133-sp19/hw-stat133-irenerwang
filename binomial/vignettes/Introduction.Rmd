@@ -47,7 +47,7 @@ We can create cumulative binomial distributions by using the `"bin_cumulative"` 
 ```{r}
 this_cum <- bin_cumulative(10, 0.3)
 this_cum
-plot.bincum(this_cum)
+plot(this_cum)
 ```
 
 The function `"bin_variable"` creates a binomial random variable. It takes in two paramters, the number of trials and the probability of success. It returns a `"binvar"` object. We can look at the parameters of the `"binvar"` object by passing it into the `"print.binvar"` method. We can get its summary with all of the parameters and measurements by passing the `"binvar"` object into the `"summary.binvar"` method, and we can view them with the `"print.summary.binvar"` method.
@@ -55,11 +55,11 @@ The function `"bin_variable"` creates a binomial random variable. It takes in tw
 ```{r}
 current_bin <- bin_variable(10, 0.5)
 current_bin
-print.binvar(current_bin)
+print(current_bin)
 ```
 
 ```{r}
-print.summary.binvar(current_bin)
+print(current_bin)
 ```
 
 
