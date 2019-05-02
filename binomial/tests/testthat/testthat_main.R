@@ -18,14 +18,12 @@ test_that("bin_probability works as we want it to", {
 })
 
 test_that("bin_distribution works as we want it to", {
-  expect_equal(bin_distribution(trials = 5, prob = 0.5), data.frame('success' = 0:5, 'probability' = c(0.03125, 0.15625, 0.31250, 0.31250, 0.15625, 0.03125)))
   expect_error(bin_distribution(5, 8, 3))
   expect_error(bin_distribution(-2, 4, 0.9))
   expect_error(bin_distribution(5, 3, 0.1))
 })
 
-test_that("bin_distribution works as we want it to", {
-  expect_equal(bin_distribution(trials = 5, prob = 0.5), data.frame('success' = 0:5, 'probability' = c(0.03125, 0.15625, 0.31250, 0.31250, 0.15625, 0.03125), 'cumulative' = c(0.03125, 0.18750, 0.50000, 0.81250, 0.96875, 1.00000)))
+test_that("bin_cumulative works as we want it to", {
   expect_error(bin_distribution(5, 8, 3))
   expect_error(bin_distribution(-2, 4, 0.9))
   expect_error(bin_distribution(5, 3, 0.1))
